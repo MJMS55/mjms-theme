@@ -12,4 +12,6 @@ $version = [string]$manifest.info.version
 $archive = Join-Path $buildRoot ('mjms_theme-' + $version + '.tar.gz')
 & tar -czf $archive -C $buildRoot 'mjms_theme'
 if ($LASTEXITCODE -ne 0) { throw 'Archive creation failed' }
-Get-Item -LiteralPath $archive | Select-Object FullName, Length
+$zipArchive = Join-Path $buildRoot ('mjms_theme-' + $version + '.zip')
+Compress-Archive -LiteralPath $stage -DestinationPath $zipArchive -Force
+Get-Item -LiteralPath $archive, $zipArchive | Select-Object FullName, Length

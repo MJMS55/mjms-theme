@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>MJMS modern icons regression</title>
+<link rel="stylesheet" href="../css/institutional.css"><link rel="stylesheet" href="../css/icons.css">
+<style>
+.app-icon__img{display:block;width:24px;height:24px;background:black;mask:url('../img/app.svg') center/contain no-repeat}
+img{width:24px;height:24px}.app-menu__current-app-glyph{display:block;width:24px;height:24px;background:currentColor}
+#header{display:flex;gap:20px;padding:20px}a{display:flex;align-items:center;gap:8px}
+</style></head><body id="body-user">
+<header id="header">
+<a href="/index.php/apps/files/"><span class="app-icon__img" id="mask"></span>Fichiers</a>
+<a href="/nextcloud/index.php/apps/mail/"><img id="legacy" src="../img/app.svg" alt="">Mail</a>
+<a href="/index.php/apps/unknown/"><img id="unknown" src="../img/app.svg" alt="">Autre application</a>
+<span class="app-menu__current-app-glyph" id="current" style="--app-icon-url:url('/apps/calendar/img/calendar.svg')"></span>
+</header><pre id="result">Pending</pre>
+<script>
+const tests = [
+ ['Native mask replaced', getComputedStyle(document.getElementById('mask')).maskImage.includes('folder.svg')],
+ ['Legacy image replaced', getComputedStyle(document.getElementById('legacy')).content.includes('mail.svg')],
+ ['Unknown app preserved', getComputedStyle(document.getElementById('unknown')).content === 'normal'],
+ ['Current app icon replaced', getComputedStyle(document.getElementById('current')).maskImage.includes('calendar-days.svg')],
+];
+document.getElementById('result').textContent=JSON.stringify({pass:tests.every(t=>t[1]),tests});
+</script></body></html>

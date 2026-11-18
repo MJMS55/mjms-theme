@@ -47,12 +47,12 @@ namespace {
         if (!$condition) { throw new \RuntimeException($message); }
         echo "PASS: $message\n";
     }
-    function config(string $compact = 'yes'): \OCP\IConfig {
-        return new class($compact) implements \OCP\IConfig {
-            public function __construct(private string $compact) {}
+    function config(string $compact = 'yes', string $icons = 'yes'): \OCP\IConfig {
+        return new class($compact, $icons) implements \OCP\IConfig {
+            public function __construct(private string $compact, private string $icons) {}
             public function getAppValue(string $app, string $key, string $default = ''): string {
-                check($app === 'mjms_theme' && $key === 'compact', 'Configuration uses the correct app and key');
-                return $this->compact;
+                check($app === 'mjms_theme' && in_array($key, ['compact', 'modern_icons'], true), 'Configuration uses the correct app and key');
+                return $key === 'compact' ? $this->compact : $this->icons;
             }
         };
     }
@@ -71,22 +71,34 @@ namespace {
     $listener->handle(new BeforeTemplateRenderedEvent(false));
     check(Util::$styles === [], 'Unrelated and anonymous requests load no theme');
     $listener->handle(new BeforeTemplateRenderedEvent(true));
-    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact']], 'Authenticated requests load palette then compact rules');
+    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact'], ['mjms_theme', 'icons']], 'Authenticated requests load palette, compact rules and icons');
     $listener->handle(new BeforeTemplateRenderedEvent(true));
-    check(count(Util::$styles) === 2, 'Repeated rendering does not duplicate assets');
+    check(count(Util::$styles) === 3, 'Repeated rendering does not duplicate assets');
 
     foreach (['no', 'unexpected'] as $value) {
         Util::$styles = [];
         (new ThemeListener(config($value)))->handle(new BeforeTemplateRenderedEvent(true));
-        check(Util::$styles === [['mjms_theme', 'institutional']], "Compact disabled for value: $value");
+        check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'icons']], "Compact disabled for value: $value");
     }
 
     $root = dirname(__DIR__);
     $xml = simplexml_load_file($root . '/appinfo/info.xml');
     check($xml !== false && (string)$xml->id === Application::APP_ID, 'Manifest app ID matches bootstrap');
     check((string)$xml->dependencies->nextcloud['min-version'] === '35' && (string)$xml->dependencies->nextcloud['max-version'] === '36', 'Manifest targets Nextcloud 35 through 36');
-    foreach (['institutional', 'compact'] as $asset) {
+    Util::$styles = [];
+    (new ThemeListener(config('yes', 'no')))->handle(new BeforeTemplateRenderedEvent(true));
+    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact']], 'Native icon option omits replacement stylesheet');
+    foreach (['institutional', 'compact', 'icons'] as $asset) {
         check(is_file($root . '/css/' . $asset . '.css'), "Stylesheet exists: $asset");
     }
+    $css = file_get_contents($root . '/css/icons.css');
+    preg_match_all("~url\\('\\.\\./(img/icons/[^']+)'\\)~", $css, $matches);
+    $assets = array_unique($matches[1]);
+    check(count($assets) === 15, 'All 15 icon mappings have bundled assets');
+    foreach ($assets as $path) {
+        $svg = simplexml_load_file($root . '/' . $path);
+        check($svg !== false && (string)$svg['viewBox'] === '0 0 24 24', 'Valid SVG: ' . basename($path));
+    }
+    check(is_file($root . '/img/icons/LICENSE'), 'Lucide license included');
     echo "All isolated contract tests passed. Server integration is not covered.\n";
 }

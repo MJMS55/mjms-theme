@@ -27,6 +27,9 @@ final class ThemeListener implements IEventListener {
         if ($this->config->getAppValue(Application::APP_ID, 'compact', 'yes') === 'yes') {
             Util::addStyle(Application::APP_ID, 'compact');
         }
+        if ($this->config->getAppValue(Application::APP_ID, 'modern_icons', 'yes') === 'yes') {
+            Util::addStyle(Application::APP_ID, 'icons');
+        }
         $this->loaded = true;
     }
 }

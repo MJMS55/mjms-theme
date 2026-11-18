@@ -1,7 +1,7 @@
 # MJMS Theme
 
 Application de thème Nextcloud issue de la maquette **Institutionnel compacte**.
-Identifiant technique : `mjms_theme`. Version : **0.1.1**.
+Identifiant technique : `mjms_theme`. Version : **0.1.2**.
 
 ## Fonctionnement
 
@@ -12,6 +12,10 @@ Identifiant technique : `mjms_theme`. Version : **0.1.1**.
 - Aucun JavaScript, appel externe, collecte de données ou dépendance à compiler.
 - Désactivation immédiate sans modification des fichiers du cœur Nextcloud.
 - Fond de tableau de bord uni, assorti au thème, avec contraste du bandeau et de la recherche.
+- Icônes Lucide à traits fins dans la navigation des applications courantes et le lanceur.
+  Les applications non reconnues, les actions métier, les miniatures et les avatars
+  conservent leurs icônes natives. Les nouveaux composants utilisent des masques SVG ;
+  les anciens liens avec image utilisent la même ressource locale.
 
 Le thème adapte l’interface existante. Il ne déplace pas les applications dans une
 nouvelle barre latérale comme dans la maquette et ne remplace pas les données réelles.
@@ -69,6 +73,14 @@ Le logo et le nom de l’organisation restent configurables via la personnalisat
 native de Nextcloud. Les autres thèmes CSS peuvent entrer en conflit : tester sans
 autre thème avant de les combiner.
 
+Pour retrouver les icônes natives :
+
+```sh
+sudo -u www-data php occ config:app:set mjms_theme modern_icons --value=no
+```
+
+Utiliser `--value=yes` pour réactiver les icônes modernes, puis recharger la page.
+
 ## Désactivation
 
 ```sh
@@ -103,4 +115,5 @@ Sources : [bootstrap](https://docs.nextcloud.com/server/stable/developer_manual/
 
 ## Licence
 
-AGPL-3.0-or-later. Voir `COPYING`.
+AGPL-3.0-or-later. Voir `COPYING`. Icônes [Lucide](https://lucide.dev), version
+0.468.0, sous licence ISC : voir `img/icons/LICENSE` pour les mentions complètes.

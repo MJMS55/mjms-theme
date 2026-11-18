@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 — 2026-11-18
+
+- Icônes Lucide à traits fins pour 15 applications courantes dans la navigation et le lanceur.
+- Ressources embarquées, sans CDN ; licence Lucide incluse.
+- Option `modern_icons` pour rétablir les icônes natives.
+- Construction des archives ZIP et tar.gz.
+
 ## 0.1.1 — 2026-11-18
 
 - Correction des variables de contraste du bandeau et du lanceur d’applications Nextcloud 35/36.

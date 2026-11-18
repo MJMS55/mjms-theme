@@ -7,7 +7,7 @@
     <summary lang="fr">Un thème institutionnel compact pour les espaces professionnels</summary>
     <description>A restrained blue palette, clear navigation and compact toolbars for Nextcloud. Keeps native file actions, permissions and virtual scrolling intact. Authenticated workspace only; no tracking or external resources.</description>
     <description lang="fr">Une palette bleue sobre, une navigation claire et des barres compactes. Conserve les actions, les permissions et le défilement natifs. Réservé à l’espace authentifié, sans suivi ni ressources externes.</description>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <licence>AGPL-3.0-or-later</licence>
     <author>MJMS</author>
     <namespace>MjmsTheme</namespace>

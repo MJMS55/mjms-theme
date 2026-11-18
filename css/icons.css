@@ -1,0 +1,267 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later
+ * Lucide icons 0.468.0 (ISC), bundled locally. See img/icons/LICENSE.
+ * Only known navigation entries are changed; labels, badges and links stay native.
+ */
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/dashboard"], [href*="/apps/dashboard/"], [href*="/apps/dashboard?"]) { --mjms-app-icon: url('../img/icons/layout-dashboard.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/dashboard"], [href*="/apps/dashboard/"], [href*="/apps/dashboard?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/dashboard"], [href*="/apps/dashboard/"], [href*="/apps/dashboard?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/layout-dashboard.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/dashboard/"] {
+    mask: url('../img/icons/layout-dashboard.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/layout-dashboard.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/files"], [href*="/apps/files/"], [href*="/apps/files?"]) { --mjms-app-icon: url('../img/icons/folder.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/files"], [href*="/apps/files/"], [href*="/apps/files?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/files"], [href*="/apps/files/"], [href*="/apps/files?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/folder.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/files/"] {
+    mask: url('../img/icons/folder.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/folder.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/photos"], [href*="/apps/photos/"], [href*="/apps/photos?"]) { --mjms-app-icon: url('../img/icons/image.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/photos"], [href*="/apps/photos/"], [href*="/apps/photos?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/photos"], [href*="/apps/photos/"], [href*="/apps/photos?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/image.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/photos/"] {
+    mask: url('../img/icons/image.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/image.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/mail"], [href*="/apps/mail/"], [href*="/apps/mail?"]) { --mjms-app-icon: url('../img/icons/mail.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/mail"], [href*="/apps/mail/"], [href*="/apps/mail?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/mail"], [href*="/apps/mail/"], [href*="/apps/mail?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/mail.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/mail/"] {
+    mask: url('../img/icons/mail.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/mail.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/calendar"], [href*="/apps/calendar/"], [href*="/apps/calendar?"]) { --mjms-app-icon: url('../img/icons/calendar-days.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/calendar"], [href*="/apps/calendar/"], [href*="/apps/calendar?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/calendar"], [href*="/apps/calendar/"], [href*="/apps/calendar?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/calendar-days.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/calendar/"] {
+    mask: url('../img/icons/calendar-days.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/calendar-days.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/contacts"], [href*="/apps/contacts/"], [href*="/apps/contacts?"]) { --mjms-app-icon: url('../img/icons/contact.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/contacts"], [href*="/apps/contacts/"], [href*="/apps/contacts?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/contacts"], [href*="/apps/contacts/"], [href*="/apps/contacts?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/contact.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/contacts/"] {
+    mask: url('../img/icons/contact.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/contact.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/deck"], [href*="/apps/deck/"], [href*="/apps/deck?"]) { --mjms-app-icon: url('../img/icons/columns-3.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/deck"], [href*="/apps/deck/"], [href*="/apps/deck?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/deck"], [href*="/apps/deck/"], [href*="/apps/deck?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/columns-3.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/deck/"] {
+    mask: url('../img/icons/columns-3.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/columns-3.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/circles"], [href*="/apps/circles/"], [href*="/apps/circles?"]) { --mjms-app-icon: url('../img/icons/users.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/circles"], [href*="/apps/circles/"], [href*="/apps/circles?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/circles"], [href*="/apps/circles/"], [href*="/apps/circles?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/users.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/circles/"] {
+    mask: url('../img/icons/users.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/users.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/activity"], [href*="/apps/activity/"], [href*="/apps/activity?"]) { --mjms-app-icon: url('../img/icons/activity.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/activity"], [href*="/apps/activity/"], [href*="/apps/activity?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/activity"], [href*="/apps/activity/"], [href*="/apps/activity?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/activity.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/activity/"] {
+    mask: url('../img/icons/activity.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/activity.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/notes"], [href*="/apps/notes/"], [href*="/apps/notes?"]) { --mjms-app-icon: url('../img/icons/notebook-pen.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/notes"], [href*="/apps/notes/"], [href*="/apps/notes?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/notes"], [href*="/apps/notes/"], [href*="/apps/notes?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/notebook-pen.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/notes/"] {
+    mask: url('../img/icons/notebook-pen.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/notebook-pen.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/mjms_pdf_manager"], [href*="/apps/mjms_pdf_manager/"], [href*="/apps/mjms_pdf_manager?"]) { --mjms-app-icon: url('../img/icons/file-text.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/mjms_pdf_manager"], [href*="/apps/mjms_pdf_manager/"], [href*="/apps/mjms_pdf_manager?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/mjms_pdf_manager"], [href*="/apps/mjms_pdf_manager/"], [href*="/apps/mjms_pdf_manager?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/file-text.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/mjms_pdf_manager/"] {
+    mask: url('../img/icons/file-text.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/file-text.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/forms"], [href*="/apps/forms/"], [href*="/apps/forms?"]) { --mjms-app-icon: url('../img/icons/clipboard-list.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/forms"], [href*="/apps/forms/"], [href*="/apps/forms?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/forms"], [href*="/apps/forms/"], [href*="/apps/forms?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/clipboard-list.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/forms/"] {
+    mask: url('../img/icons/clipboard-list.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/clipboard-list.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/tasks"], [href*="/apps/tasks/"], [href*="/apps/tasks?"]) { --mjms-app-icon: url('../img/icons/list-checks.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/tasks"], [href*="/apps/tasks/"], [href*="/apps/tasks?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/tasks"], [href*="/apps/tasks/"], [href*="/apps/tasks?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/list-checks.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/tasks/"] {
+    mask: url('../img/icons/list-checks.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/list-checks.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/passwords"], [href*="/apps/passwords/"], [href*="/apps/passwords?"]) { --mjms-app-icon: url('../img/icons/key-round.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/passwords"], [href*="/apps/passwords/"], [href*="/apps/passwords?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/passwords"], [href*="/apps/passwords/"], [href*="/apps/passwords?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/key-round.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/passwords/"] {
+    mask: url('../img/icons/key-round.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/key-round.svg') center / contain no-repeat !important;
+}
+
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/spreed"], [href*="/apps/spreed/"], [href*="/apps/spreed?"]) { --mjms-app-icon: url('../img/icons/messages-square.svg'); }
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/spreed"], [href*="/apps/spreed/"], [href*="/apps/spreed?"]) :is(.app-icon__img, .app-menu-entry__icon) {
+    mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    -webkit-mask: var(--mjms-app-icon) center / contain no-repeat !important;
+    background-image: none !important;
+    background-color: var(--color-primary-element) !important;
+}
+body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a:is([href$="/apps/spreed"], [href*="/apps/spreed/"], [href*="/apps/spreed?"]) img:not(.avatar):not(.avatardiv img) {
+    content: url('../img/icons/messages-square.svg');
+    filter: var(--mjms-img-icon-filter, none) !important;
+    opacity: 1;
+}
+body#body-user #header .app-menu__current-app-glyph[style*="/spreed/"] {
+    mask: url('../img/icons/messages-square.svg') center / contain no-repeat !important;
+    -webkit-mask: url('../img/icons/messages-square.svg') center / contain no-repeat !important;
+}
+
+/* Embedded SVGs used as images cannot inherit currentColor. Match the palette. */
+body#body-user { --mjms-img-icon-filter: brightness(0) saturate(100%) invert(27%) sepia(31%) saturate(1030%) hue-rotate(173deg) brightness(91%) contrast(89%); }
+:root[data-theme-dark] body#body-user, body#body-user[data-theme-dark],
+:root[data-themes*="dark"] body#body-user { --mjms-img-icon-filter: brightness(0) invert(88%); }
+@media (forced-colors: active) {
+    body#body-user :is(#header, .app-menu__popover, .app-menu__popover-base, #app-navigation, .app-navigation) a .app-icon__img { background-color: CanvasText !important; }
+}
