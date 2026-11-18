@@ -1,0 +1,47 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+/* Keep the 44px native virtual file rows: the virtualizer uses that exact size.
+ * Compact surrounding chrome, not virtual rows, previews, dialogs or editors.
+ */
+@media (min-width: 1024px) and (pointer: fine) {
+    body#body-user {
+        --body-container-margin: 0px;
+        --body-container-radius: 0px;
+        --navigation-width: 190px;
+    }
+
+    body#body-user :is(#app-navigation, .app-navigation) {
+        width: 190px;
+        min-width: 190px;
+    }
+
+    body#body-user :is(#app-navigation, .app-navigation) .app-navigation-entry {
+        margin-block: 0;
+    }
+
+    body#body-user :is(#app-navigation, .app-navigation) .app-navigation-entry-link {
+        min-height: 34px;
+        padding-block: 3px;
+    }
+
+    body#body-user .files-list__header {
+        padding-block: 4px;
+        padding-inline: 12px;
+        gap: 8px;
+    }
+
+    body#body-user .files-list__header :is(.button-vue, .button-vue--vue-primary) {
+        min-height: 32px;
+        height: 32px;
+        padding-block: 2px;
+        border-radius: 3px;
+    }
+
+    body#body-user .files-list__filters:not(:empty) {
+        padding-block: 4px;
+    }
+
+    body#body-user .files-list__table {
+        margin-inline: 0;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>mjms_theme</id>
+    <name>MJMS Theme</name>
+    <summary>Compact institutional theme for professional workspaces</summary>
+    <summary lang="fr">Un thème institutionnel compact pour les espaces professionnels</summary>
+    <description>A restrained blue palette, clear navigation and compact toolbars for Nextcloud. Keeps native file actions, permissions and virtual scrolling intact. Authenticated workspace only; no tracking or external resources.</description>
+    <description lang="fr">Une palette bleue sobre, une navigation claire et des barres compactes. Conserve les actions, les permissions et le défilement natifs. Réservé à l’espace authentifié, sans suivi ni ressources externes.</description>
+    <version>0.1.0</version>
+    <licence>AGPL-3.0-or-later</licence>
+    <author>MJMS</author>
+    <namespace>MjmsTheme</namespace>
+    <category>customization</category>
+    <bugs>https://github.com/MJMS55/mjms-theme/issues</bugs>
+    <repository type="git">https://github.com/MJMS55/mjms-theme.git</repository>
+    <dependencies>
+        <php min-version="8.2"/>
+        <nextcloud min-version="35" max-version="36"/>
+    </dependencies>
+</info>

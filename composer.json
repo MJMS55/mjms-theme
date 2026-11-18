@@ -1,0 +1,9 @@
+{
+  "name": "mjms/mjms-theme",
+  "description": "Compact institutional theme for Nextcloud 35 and 36",
+  "type": "project",
+  "license": "AGPL-3.0-or-later",
+  "require": {"php": ">=8.2"},
+  "autoload": {"psr-4": {"OCA\\MjmsTheme\\": "lib/"}},
+  "scripts": {"test": "php tests/run.php"}
+}
