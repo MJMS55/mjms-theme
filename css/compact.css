@@ -3,44 +3,44 @@
  * Compact surrounding chrome, not virtual rows, previews, dialogs or editors.
  */
 @media (min-width: 1024px) and (pointer: fine) {
-    body#body-user {
+    body:is(#body-user, #body-settings) {
         --body-container-margin: 0px;
         --body-container-radius: 0px;
-        --navigation-width: 190px;
     }
 
-    body#body-user :is(#app-navigation, .app-navigation) {
+    :is(body#body-settings, body#body-user #content.app-files) :is(#app-navigation, .app-navigation) {
+        --navigation-width: 190px;
         width: 190px;
         min-width: 190px;
     }
 
-    body#body-user :is(#app-navigation, .app-navigation) .app-navigation-entry {
+    body:is(#body-user, #body-settings) :is(#app-navigation, .app-navigation) .app-navigation-entry {
         margin-block: 0;
     }
 
-    body#body-user :is(#app-navigation, .app-navigation) .app-navigation-entry-link {
+    body:is(#body-user, #body-settings) :is(#app-navigation, .app-navigation) .app-navigation-entry-link {
         min-height: 34px;
         padding-block: 3px;
     }
 
-    body#body-user .files-list__header {
+    body:is(#body-user, #body-settings) .files-list__header {
         padding-block: 4px;
         padding-inline: 12px;
         gap: 8px;
     }
 
-    body#body-user .files-list__header :is(.button-vue, .button-vue--vue-primary) {
+    body:is(#body-user, #body-settings) .files-list__header :is(.button-vue, .button-vue--vue-primary) {
         min-height: 32px;
         height: 32px;
         padding-block: 2px;
         border-radius: 3px;
     }
 
-    body#body-user .files-list__filters:not(:empty) {
+    body:is(#body-user, #body-settings) .files-list__filters:not(:empty) {
         padding-block: 4px;
     }
 
-    body#body-user .files-list__table {
+    body:is(#body-user, #body-settings) .files-list__table {
         margin-inline: 0;
         border-radius: 0;
     }

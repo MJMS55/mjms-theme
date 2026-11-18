@@ -1,14 +1,26 @@
 # MJMS Theme
 
 Application de thème Nextcloud issue de la maquette **Institutionnel compacte**.
-Identifiant technique : `mjms_theme`. Version : **0.1.3**.
+Identifiant technique : `mjms_theme`. Version : **0.2.5**.
+
+Dans **Paramètres d’administration → Personnalisation**, téléversez les images aux emplacements suivants.
+
+| Réglage Nextcloud | Fichier |
+| --- | --- |
+| Logo | `MJMS_logo_verticale_t.png` |
+| Logo d’en-tête | `MJMS_logo_horizontal_t.png` |
+| Image de fond et de connexion | `mjms-fond-login.png` |
+| Favicon | `favicon.png` |
+
+Les images de marque se gèrent dans Nextcloud et sont conservées lors des mises à jour du thème.
 
 ## Fonctionnement
 
 - Palette bleue sobre, navigation claire et séparateurs discrets.
 - Marges réduites, navigation de 190 px et barres compactes sur ordinateur avec souris.
 - Actions, sélection, partage, menus, permissions et recherche natifs conservés.
-- Écran de connexion et pages publiques inchangés.
+- Connexion, récupération de compte, paramètres et pages publiques habillés par le thème. Activer l’application pour tous les utilisateurs afin que Nextcloud la charge avant connexion.
+- Palette et composants communs dans l’espace connecté, avec des styles dédiés dans Fichiers, Agenda et le Tableau de bord. Les applications compatibles avec les composants Nextcloud partagés reprennent aussi l’habillage de leurs panneaux et listes.
 - Aucun JavaScript, appel externe, collecte de données ou dépendance à compiler.
 - Désactivation immédiate sans modification des fichiers du cœur Nextcloud.
 - Fond de tableau de bord uni, assorti au thème, avec contraste du bandeau et de la recherche.

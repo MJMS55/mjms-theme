@@ -8,6 +8,7 @@ namespace OCP\EventDispatcher {
     interface IEventListener { public function handle(Event $event): void; }
 }
 namespace OCP\AppFramework\Http\Events {
+    class BeforeLoginTemplateRenderedEvent extends \OCP\EventDispatcher\Event {}
     class BeforeTemplateRenderedEvent extends \OCP\EventDispatcher\Event {
         public function __construct(private bool $loggedIn) {}
         public function isLoggedIn(): bool { return $this->loggedIn; }
@@ -17,8 +18,12 @@ namespace OCP {
     interface IConfig { public function getAppValue(string $app, string $key, string $default = ''): string; }
     class Util {
         public static array $styles = [];
+        public static array $headers = [];
         public static function addStyle(string $app, ?string $file = null): void {
             self::$styles[] = [$app, $file];
+        }
+        public static function addHeader(string $tag, array $attributes): void {
+            self::$headers[] = [$tag, $attributes];
         }
     }
 }
@@ -37,6 +42,7 @@ namespace {
     use OCA\MjmsTheme\AppInfo\Application;
     use OCA\MjmsTheme\Listener\ThemeListener;
     use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
+    use OCP\AppFramework\Http\Events\BeforeLoginTemplateRenderedEvent;
     use OCP\EventDispatcher\Event;
     use OCP\Util;
 
@@ -66,19 +72,29 @@ namespace {
     check($app->id === 'mjms_theme', 'Bootstrap uses the installable app ID');
     check(($context->listeners[BeforeTemplateRenderedEvent::class] ?? '') === ThemeListener::class, 'Template listener registered');
 
+    check(($context->listeners[BeforeLoginTemplateRenderedEvent::class] ?? '') === ThemeListener::class, 'Pre-login listener registered');
+    foreach ([new BeforeLoginTemplateRenderedEvent(), new BeforeTemplateRenderedEvent(false)] as $event) {
+        Util::$styles = [];
+        Util::$headers = [];
+        (new ThemeListener(config()))->handle($event);
+        check(in_array(['mjms_theme', 'workspace'], Util::$styles, true), 'Guest rendering loads workspace styles');
+        check(Util::$headers === [], 'Guest rendering leaves the native favicon in charge');
+    }
+    Util::$styles = [];
+    Util::$headers = [];
     $listener = new ThemeListener(config());
     $listener->handle(new Event());
-    $listener->handle(new BeforeTemplateRenderedEvent(false));
-    check(Util::$styles === [], 'Unrelated and anonymous requests load no theme');
+    check(Util::$styles === [], 'Unrelated events load no styles');
     $listener->handle(new BeforeTemplateRenderedEvent(true));
-    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact'], ['mjms_theme', 'icons'], ['mjms_theme', 'command-icons']], 'Authenticated requests load both icon stylesheets');
+    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'workspace'], ['mjms_theme', 'compact'], ['mjms_theme', 'icons'], ['mjms_theme', 'command-icons']], 'Authenticated requests load both icon stylesheets');
     $listener->handle(new BeforeTemplateRenderedEvent(true));
-    check(count(Util::$styles) === 4, 'Repeated rendering does not duplicate assets');
+    check(count(Util::$styles) === 5, 'Repeated rendering does not duplicate assets');
+    check(Util::$headers === [], 'Workspace rendering leaves the native favicon in charge');
 
     foreach (['no', 'unexpected'] as $value) {
         Util::$styles = [];
         (new ThemeListener(config($value)))->handle(new BeforeTemplateRenderedEvent(true));
-        check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'icons'], ['mjms_theme', 'command-icons']], "Compact disabled for value: $value");
+        check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'workspace'], ['mjms_theme', 'icons'], ['mjms_theme', 'command-icons']], "Compact disabled for value: $value");
     }
 
     $root = dirname(__DIR__);
@@ -87,8 +103,8 @@ namespace {
     check((string)$xml->dependencies->nextcloud['min-version'] === '35' && (string)$xml->dependencies->nextcloud['max-version'] === '36', 'Manifest targets Nextcloud 35 through 36');
     Util::$styles = [];
     (new ThemeListener(config('yes', 'no')))->handle(new BeforeTemplateRenderedEvent(true));
-    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact']], 'Native icon option omits replacement stylesheet');
-    foreach (['institutional', 'compact', 'icons', 'command-icons'] as $asset) {
+    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'workspace'], ['mjms_theme', 'compact']], 'Native icon option omits replacement stylesheet');
+    foreach (['institutional', 'workspace', 'compact', 'icons', 'command-icons'] as $asset) {
         check(is_file($root . '/css/' . $asset . '.css'), "Stylesheet exists: $asset");
     }
     $css = file_get_contents($root . '/css/icons.css') . file_get_contents($root . '/css/command-icons.css');

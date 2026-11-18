@@ -9,6 +9,7 @@ use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\AppFramework\Http\Events\BeforeLoginTemplateRenderedEvent;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 
 final class Application extends App implements IBootstrap {
@@ -20,6 +21,7 @@ final class Application extends App implements IBootstrap {
 
     public function register(IRegistrationContext $context): void {
         $context->registerEventListener(BeforeTemplateRenderedEvent::class, ThemeListener::class);
+        $context->registerEventListener(BeforeLoginTemplateRenderedEvent::class, ThemeListener::class);
     }
 
     public function boot(IBootContext $context): void {

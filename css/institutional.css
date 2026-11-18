@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: AGPL-3.0-or-later
- * MJMS Institutional. Scope everything to the authenticated workspace.
+ * MJMS Institutional. Shared palette and workspace styling.
  * No DOM replacement, hidden controls or remote resources.
  */
-body#body-user {
+body:is(#body-user, #body-settings, #body-login, #body-public) {
     --color-primary: #244e79;
     --color-primary-default: #244e79;
     --color-primary-text: #fff;
@@ -19,12 +19,11 @@ body#body-user {
     --color-main-background-blur: #ffffffed;
     --color-main-text: #213044;
     /* Header/search/dashboard use plain-background tokens, not primary-text. */
-    --color-background-plain: #f4f6f9;
-    --color-background-plain-text: #213044;
     --background-invert-if-dark: none;
     --background-invert-if-bright: invert(100%);
     --background-image-invert-if-bright: invert(100%);
     --color-text-maxcontrast: #637083;
+    --color-text-maxcontrast-background-blur: var(--color-text-maxcontrast);
     --color-background-dark: #e1e6ec;
     --color-background-darker: #d4dde7;
     --color-background-hover: #edf2f8;
@@ -38,60 +37,65 @@ body#body-user {
     --border-radius-element-small: 3px;
     --mjms-navigation: #f5f7fa;
     --mjms-navigation-text: #526176;
-    background: #f4f6f9 !important;
     font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
-body#body-user #header {
+body:is(#body-user, #body-settings, #body-public) {
+    --color-background-plain: #f4f6f9;
+    --color-background-plain-text: #213044;
+    background: #f4f6f9 !important;
+}
+
+body:is(#body-user, #body-settings) #header {
     background: var(--color-main-background) !important;
     color: var(--color-main-text);
     box-shadow: none;
     border-bottom: 1px solid var(--color-border);
 }
 
-body#body-user #header {
+body:is(#body-user, #body-settings) #header {
     --color-background-plain: var(--color-main-background);
     --color-background-plain-text: var(--color-main-text);
 }
 
 /* Nextcloud 35/36 header regions and the app launcher inherit these tokens. */
-body#body-user #header :is(.header-start, .header-center, .header-end) {
+body:is(#body-user, #body-settings) #header :is(.header-start, .header-center, .header-end) {
     --color-background-plain-text: var(--color-main-text);
 }
 
-body#body-user #header .unified-search-input__field {
+body:is(#body-user, #body-settings) #header .unified-search-input__field {
     --resting-background: var(--color-background-grid);
     --resting-background-hover: var(--color-background-hover);
     box-shadow: inset 0 0 0 1px var(--color-border);
 }
 
-body#body-user #header :is(.unified-search-input__resting, .unified-search-input__shortcut) {
+body:is(#body-user, #body-settings) #header :is(.unified-search-input__resting, .unified-search-input__shortcut) {
     color: var(--color-text-maxcontrast);
 }
 
 /* The theme replaces the wallpaper with a flat surface. Keep the dashboard's
  * greeting and status text on the same background/foreground pairing. */
-body#body-user #app-dashboard {
+body:is(#body-user, #body-settings) #app-dashboard {
     background-color: var(--color-background-plain) !important;
     background-image: none !important;
     color: var(--color-main-text);
 }
 
-body#body-user #app-dashboard > h2 {
+body:is(#body-user, #body-settings) #app-dashboard > h2 {
     color: var(--color-main-text);
 }
 
 /* Dashboard's scroll gradient is designed for photographic backgrounds. */
-body#body-user:has(#app-dashboard) #header::before {
+body:is(#body-user, #body-settings):has(#app-dashboard) #header::before {
     background-image: none;
 }
 
-body#body-user #content {
+body:is(#body-user, #body-settings) #content {
     border-radius: 0;
     box-shadow: none;
 }
 
-body#body-user :is(#app-navigation, .app-navigation) {
+body:is(#body-user, #body-settings) :is(#app-navigation, .app-navigation) {
     background: var(--mjms-navigation) !important;
     color: var(--mjms-navigation-text);
     border-inline-end: 1px solid var(--color-border);
@@ -99,49 +103,49 @@ body#body-user :is(#app-navigation, .app-navigation) {
     border-radius: 0;
 }
 
-body#body-user :is(#app-navigation, .app-navigation) .app-navigation-entry-link {
+body:is(#body-user, #body-settings) :is(#app-navigation, .app-navigation) .app-navigation-entry-link {
     color: var(--mjms-navigation-text);
     border-radius: 3px;
 }
 
-body#body-user :is(#app-navigation, .app-navigation) :is(.app-navigation-entry--active, .active) > .app-navigation-entry-link {
+body:is(#body-user, #body-settings) :is(#app-navigation, .app-navigation) :is(.app-navigation-entry--active, .active) > .app-navigation-entry-link {
     background: var(--color-primary-element-light);
     color: var(--color-primary-element-light-text);
     box-shadow: inset 3px 0 var(--color-primary-element);
 }
 
-body#body-user :is(#app-content, .app-content) {
+body:is(#body-user, #body-settings) :is(#app-content, .app-content) {
     border-radius: 0;
     box-shadow: none;
 }
 
-body#body-user .files-list__header {
+body:is(#body-user, #body-settings) .files-list__header {
     background: var(--color-main-background);
     border-bottom: 1px solid var(--color-border);
 }
 
-body#body-user .files-list__thead {
+body:is(#body-user, #body-settings) .files-list__thead {
     background: var(--mjms-navigation);
     color: var(--color-text-maxcontrast);
 }
 
-body#body-user .files-list:not(.files-list--grid) .files-list__row {
+body:is(#body-user, #body-settings) .files-list:not(.files-list--grid) .files-list__row {
     border-bottom: 1px solid var(--color-border);
     border-radius: 0;
 }
 
-body#body-user .files-list__row--active {
+body:is(#body-user, #body-settings) .files-list__row--active {
     background: var(--color-primary-element-light);
 }
 
-body#body-user :is(button, a, input, select, textarea):focus-visible {
+body:is(#body-user, #body-settings) :is(button, a, input, select, textarea):focus-visible {
     outline: 2px solid var(--color-primary-element);
     outline-offset: 2px;
 }
 
 /* Respect Nextcloud's explicit dark appearance instead of forcing white panels. */
-:root[data-theme-dark] body#body-user,
-body#body-user[data-theme-dark] {
+:root[data-theme-dark] body:is(#body-user, #body-settings, #body-login, #body-public),
+body:is(#body-user, #body-settings, #body-login, #body-public)[data-theme-dark] {
     --color-primary: #a5c5e8;
     --color-primary-default: #a5c5e8;
     --color-primary-element: #a5c5e8;
@@ -157,8 +161,6 @@ body#body-user[data-theme-dark] {
     --color-main-background-translucent: #18212ced;
     --color-main-background-blur: #18212ced;
     --color-main-text: #e2e8f0;
-    --color-background-plain: #111922;
-    --color-background-plain-text: #e2e8f0;
     --background-invert-if-dark: invert(100%);
     --background-invert-if-bright: none;
     --background-image-invert-if-bright: none;
@@ -171,11 +173,17 @@ body#body-user[data-theme-dark] {
     --color-border-dark: #485970;
     --mjms-navigation: #141d28;
     --mjms-navigation-text: #b8c6d7;
+}
+
+:root[data-theme-dark] body:is(#body-user, #body-settings, #body-public),
+body:is(#body-user, #body-settings, #body-public)[data-theme-dark] {
+    --color-background-plain: #111922;
+    --color-background-plain-text: #e2e8f0;
     background: #111922 !important;
 }
 
 @media (forced-colors: active) {
-    body#body-user :is(#header, #app-navigation, .app-navigation, .files-list__header) {
+    body:is(#body-user, #body-settings) :is(#header, #app-navigation, .app-navigation, .files-list__header) {
         background: Canvas !important;
         color: CanvasText;
     }

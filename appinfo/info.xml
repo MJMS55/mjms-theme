@@ -5,12 +5,15 @@
     <name>MJMS Theme</name>
     <summary>Compact institutional theme for professional workspaces</summary>
     <summary lang="fr">Un thème institutionnel compact pour les espaces professionnels</summary>
-    <description>A restrained blue palette, clear navigation and compact toolbars for Nextcloud. Keeps native file actions, permissions and virtual scrolling intact. Authenticated workspace only; no tracking or external resources.</description>
-    <description lang="fr">Une palette bleue sobre, une navigation claire et des barres compactes. Conserve les actions, les permissions et le défilement natifs. Réservé à l’espace authentifié, sans suivi ni ressources externes.</description>
-    <version>0.1.3</version>
+    <description>Institutional styling for the Nextcloud workspace, settings, sign-in and public pages. Provides compact toolbars and locally bundled icons.</description>
+    <description lang="fr">Un thème institutionnel pour l’espace de travail Nextcloud, les paramètres, la connexion et les pages publiques. Barres compactes et icônes intégrées.</description>
+    <version>0.2.5</version>
     <licence>AGPL-3.0-or-later</licence>
     <author>MJMS</author>
     <namespace>MjmsTheme</namespace>
+    <types>
+        <prelogin/>
+    </types>
     <category>customization</category>
     <bugs>https://github.com/MJMS55/mjms-theme/issues</bugs>
     <repository type="git">https://github.com/MJMS55/mjms-theme.git</repository>

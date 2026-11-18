@@ -1,0 +1,107 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+/* Native Nextcloud layouts and shared components. No forms or controls are moved. */
+body#body-public #header #nextcloud .logo {
+    inline-size: 84px;
+}
+
+body#body-login #header.header-guest .logo {
+    box-sizing: border-box;
+    inline-size: min(100%, 96px);
+    block-size: 96px;
+    background-size: contain;
+}
+
+@media (forced-colors: none) {
+    body#body-login .wrapper {
+        width: 100%;
+        box-sizing: border-box;
+        padding-inline: clamp(12px, 4vw, 32px);
+        margin-block-start: clamp(20px, 7vh, 72px);
+    }
+
+    body#body-login #header.header-guest {
+        margin-block-end: 16px;
+    }
+
+    body#body-login :is(.guest-box, .body-login-container) {
+        background-color: var(--color-main-background);
+        color: var(--color-main-text);
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+        box-shadow: 0 8px 28px var(--color-box-shadow);
+        max-inline-size: 100%;
+        box-sizing: border-box;
+    }
+
+    body#body-login .login-box {
+        inline-size: min(100%, 410px);
+        padding: clamp(16px, 5vw, 28px);
+    }
+
+    body#body-login footer.guest-box {
+        box-shadow: none;
+    }
+
+    body#body-public #header {
+        background: var(--color-main-background) !important;
+        border-block-end: 1px solid var(--color-border);
+        --color-background-plain: var(--color-main-background);
+        --color-background-plain-text: var(--color-main-text);
+    }
+
+    body#body-public :is(#content, #preview) {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    body:is(#body-user, #body-settings) :is(.app-sidebar, .app-content-list) {
+        border-inline-start-color: var(--color-border);
+        border-radius: var(--border-radius);
+    }
+
+    body:is(#body-user, #body-settings) :is(.modal-container, .popover__inner, .v-popper__inner) {
+        border-color: var(--color-border);
+        border-radius: var(--border-radius-large);
+    }
+
+    body#body-settings #app-content > .section {
+        padding-block: clamp(12px, 2vw, 24px);
+        border-block-end: 1px solid var(--color-border);
+    }
+
+    body#body-user #app-dashboard :is(.panel, .dashboard-widget) {
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius-large);
+        box-shadow: none;
+    }
+
+    /* Agenda uses FullCalendar variables. Event colours continue to identify calendars. */
+    body:is(#body-user, #body-public) .calendar-wrapper .fc {
+        --fc-border-color: var(--color-border);
+        --fc-neutral-bg-color: var(--mjms-navigation);
+        --fc-page-bg-color: var(--color-main-background);
+        --fc-today-bg-color: var(--color-primary-element-light);
+    }
+
+    /* Shared list panes in clients such as Contacts, Mail, Talk and Notes. */
+    body#body-user .app-content-list {
+        background-color: var(--color-main-background);
+        border-inline-end: 1px solid var(--color-border);
+    }
+
+    body#body-user .app-content-list :is(.list-item--active, .list-item[aria-current="true"]) {
+        background-color: var(--color-primary-element-light);
+        color: var(--color-primary-element-light-text);
+    }
+
+    body#body-user .app-content-details {
+        background-color: var(--color-main-background);
+    }
+}
+
+@media (max-width: 480px) {
+    body#body-login #header.header-guest .logo {
+        inline-size: min(100%, 76px);
+        block-size: 76px;
+    }
+}
