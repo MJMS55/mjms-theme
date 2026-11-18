@@ -18,6 +18,12 @@ body#body-user {
     --color-main-background-translucent: #ffffffed;
     --color-main-background-blur: #ffffffed;
     --color-main-text: #213044;
+    /* Header/search/dashboard use plain-background tokens, not primary-text. */
+    --color-background-plain: #f4f6f9;
+    --color-background-plain-text: #213044;
+    --background-invert-if-dark: none;
+    --background-invert-if-bright: invert(100%);
+    --background-image-invert-if-bright: invert(100%);
     --color-text-maxcontrast: #637083;
     --color-background-dark: #e1e6ec;
     --color-background-darker: #d4dde7;
@@ -43,15 +49,41 @@ body#body-user #header {
     border-bottom: 1px solid var(--color-border);
 }
 
-body#body-user #header :is(.header-left, .header-right) {
-    --color-primary: var(--color-main-background);
-    --color-primary-text: var(--color-main-text);
-    --color-primary-text-dark: var(--color-main-text);
+body#body-user #header {
+    --color-background-plain: var(--color-main-background);
+    --color-background-plain-text: var(--color-main-text);
 }
 
-/* Header icons are often white bitmap masks in Nextcloud. */
-body#body-user #header :is(.header-menu__trigger, .app-menu-entry__link) {
+/* Nextcloud 35/36 header regions and the app launcher inherit these tokens. */
+body#body-user #header :is(.header-start, .header-center, .header-end) {
+    --color-background-plain-text: var(--color-main-text);
+}
+
+body#body-user #header .unified-search-input__field {
+    --resting-background: var(--color-background-grid);
+    --resting-background-hover: var(--color-background-hover);
+    box-shadow: inset 0 0 0 1px var(--color-border);
+}
+
+body#body-user #header :is(.unified-search-input__resting, .unified-search-input__shortcut) {
+    color: var(--color-text-maxcontrast);
+}
+
+/* The theme replaces the wallpaper with a flat surface. Keep the dashboard's
+ * greeting and status text on the same background/foreground pairing. */
+body#body-user #app-dashboard {
+    background-color: var(--color-background-plain) !important;
+    background-image: none !important;
     color: var(--color-main-text);
+}
+
+body#body-user #app-dashboard > h2 {
+    color: var(--color-main-text);
+}
+
+/* Dashboard's scroll gradient is designed for photographic backgrounds. */
+body#body-user:has(#app-dashboard) #header::before {
+    background-image: none;
 }
 
 body#body-user #content {
@@ -125,6 +157,11 @@ body#body-user[data-theme-dark] {
     --color-main-background-translucent: #18212ced;
     --color-main-background-blur: #18212ced;
     --color-main-text: #e2e8f0;
+    --color-background-plain: #111922;
+    --color-background-plain-text: #e2e8f0;
+    --background-invert-if-dark: invert(100%);
+    --background-invert-if-bright: none;
+    --background-image-invert-if-bright: none;
     --color-text-maxcontrast: #b0bdcd;
     --color-background-dark: #344153;
     --color-background-darker: #435269;

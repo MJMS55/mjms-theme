@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>MJMS header contrast regression</title>
+<link rel="stylesheet" href="../css/institutional.css">
+<style>
+/* Minimal reproduction of the upstream plain-background consumers. */
+body { margin: 0; }
+#header { display: flex; align-items: center; gap: 32px; padding: 12px 20px; }
+.header-start, .header-center, .header-end { display: flex; align-items: center; gap: 14px; }
+.app-menu__trigger { color: var(--color-background-plain-text); }
+.app-menu__current-app-glyph { width: 24px; height: 24px; background: var(--color-background-plain-text); mask: linear-gradient(#000 0 0); }
+.unified-search-input__field { padding: 10px; background: var(--resting-background); }
+.unified-search-input__resting { color: color-mix(in srgb, var(--color-background-plain-text) 70%, var(--color-background-plain)); }
+#app-dashboard { padding: 20px; }
+#app-dashboard > h2 { color: var(--color-background-plain-text); }
+</style>
+</head>
+<body id="body-user">
+<header id="header"><div class="header-start"><span class="app-menu__current-app-glyph"></span><span class="app-menu__trigger">Applications</span></div><div class="header-center"><div class="unified-search-input__field"><span class="unified-search-input__resting">Applications, fichiers, messages et plus encore</span></div></div><div class="header-end">Notifications</div></header>
+<main id="app-dashboard"><h2>Bonjour Michel</h2><p>Tableau de bord</p></main>
+<pre id="result">Pending</pre>
+<script>
+if (location.hash === '#dark') document.documentElement.setAttribute('data-theme-dark', '');
+function rgb(value) { const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); ctx.fillStyle = value; ctx.fillRect(0, 0, 1, 1); return Array.from(ctx.getImageData(0, 0, 1, 1).data).slice(0, 3); }
+function luminance(color) { return rgb(color).map(v => { v /= 255; return v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }).reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0); }
+function contrast(a, b) { const values = [luminance(a), luminance(b)].sort((x, y) => y - x); return (values[0] + .05) / (values[1] + .05); }
+const checks = [
+ ['Launcher', '.app-menu__trigger', '#header', 'color'],
+ ['App icon', '.app-menu__current-app-glyph', '#header', 'backgroundColor'],
+ ['Search', '.unified-search-input__resting', '.unified-search-input__field', 'color'],
+ ['Dashboard greeting', '#app-dashboard > h2', '#app-dashboard', 'color'],
+];
+const results = checks.map(([label, foreground, background, property]) => { const ratio = contrast(getComputedStyle(document.querySelector(foreground))[property], getComputedStyle(document.querySelector(background)).backgroundColor); return { label, ratio: +ratio.toFixed(2), pass: ratio >= 4.5 }; });
+document.querySelector('#result').textContent = JSON.stringify({ mode: location.hash === '#dark' ? 'dark' : 'light', pass: results.every(r => r.pass), results });
+</script>
+</body>
+</html>

@@ -7,7 +7,9 @@ $items = @('appinfo', 'lib', 'css', 'img', 'README.md', 'CHANGELOG.md', 'COPYING
 foreach ($item in $items) {
     Copy-Item -LiteralPath (Join-Path $projectRoot $item) -Destination $stage -Recurse -Force
 }
-$archive = Join-Path $buildRoot 'mjms_theme-0.1.0.tar.gz'
+[xml]$manifest = Get-Content -LiteralPath (Join-Path $projectRoot 'appinfo/info.xml') -Raw
+$version = [string]$manifest.info.version
+$archive = Join-Path $buildRoot ('mjms_theme-' + $version + '.tar.gz')
 & tar -czf $archive -C $buildRoot 'mjms_theme'
 if ($LASTEXITCODE -ne 0) { throw 'Archive creation failed' }
 Get-Item -LiteralPath $archive | Select-Object FullName, Length
