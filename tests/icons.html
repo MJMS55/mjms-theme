@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><title>MJMS modern icons regression</title>
 <link rel="stylesheet" href="../css/institutional.css"><link rel="stylesheet" href="../css/icons.css">
+<link rel="stylesheet" href="../css/command-icons.css">
 <style>
 .app-icon__img{display:block;width:24px;height:24px;background:black;mask:url('../img/app.svg') center/contain no-repeat}
 img{width:24px;height:24px}.app-menu__current-app-glyph{display:block;width:24px;height:24px;background:currentColor}
@@ -11,13 +12,20 @@ img{width:24px;height:24px}.app-menu__current-app-glyph{display:block;width:24px
 <a href="/nextcloud/index.php/apps/mail/"><img id="legacy" src="../img/app.svg" alt="">Mail</a>
 <a href="/index.php/apps/unknown/"><img id="unknown" src="../img/app.svg" alt="">Autre application</a>
 <span class="app-menu__current-app-glyph" id="current" style="--app-icon-url:url('/apps/calendar/img/calendar.svg')"></span>
-</header><pre id="result">Pending</pre>
+</header>
+<button aria-label="Rechercher"><span id="search" class="material-design-icon magnify-icon"><svg width="20" height="20"><path d="M0 0h10v10z"/></svg></span></button>
+<button data-cy-files-list-row-action="download"><span id="download" class="files-list__row-action-icon"><svg width="20" height="20"><path d="M0 0h10v10z"/></svg></span>Télécharger</button>
+<button data-cy-files-list-row-action="delete"><span id="delete" class="files-list__row-action-icon"><svg width="20" height="20"><path d="M0 0h10v10z"/></svg></span>Retirer le partage</button>
+<pre id="result">Pending</pre>
 <script>
 const tests = [
  ['Native mask replaced', getComputedStyle(document.getElementById('mask')).maskImage.includes('folder.svg')],
  ['Legacy image replaced', getComputedStyle(document.getElementById('legacy')).content.includes('mail.svg')],
  ['Unknown app preserved', getComputedStyle(document.getElementById('unknown')).content === 'normal'],
  ['Current app icon replaced', getComputedStyle(document.getElementById('current')).maskImage.includes('calendar-days.svg')],
+ ['Search replaced', getComputedStyle(document.getElementById('search')).maskImage.includes('search.svg') && getComputedStyle(document.querySelector('#search svg')).visibility === 'hidden'],
+ ['File download replaced', getComputedStyle(document.getElementById('download')).maskImage.includes('download.svg')],
+ ['Context-dependent delete icon preserved', getComputedStyle(document.querySelector('#delete svg')).visibility === 'visible'],
 ];
 document.getElementById('result').textContent=JSON.stringify({pass:tests.every(t=>t[1]),tests});
 </script></body></html>

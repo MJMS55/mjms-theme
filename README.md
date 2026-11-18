@@ -1,7 +1,7 @@
 # MJMS Theme
 
 Application de thème Nextcloud issue de la maquette **Institutionnel compacte**.
-Identifiant technique : `mjms_theme`. Version : **0.1.2**.
+Identifiant technique : `mjms_theme`. Version : **0.1.3**.
 
 ## Fonctionnement
 
@@ -12,10 +12,10 @@ Identifiant technique : `mjms_theme`. Version : **0.1.2**.
 - Aucun JavaScript, appel externe, collecte de données ou dépendance à compiler.
 - Désactivation immédiate sans modification des fichiers du cœur Nextcloud.
 - Fond de tableau de bord uni, assorti au thème, avec contraste du bandeau et de la recherche.
-- Icônes Lucide à traits fins dans la navigation des applications courantes et le lanceur.
-  Les applications non reconnues, les actions métier, les miniatures et les avatars
-  conservent leurs icônes natives. Les nouveaux composants utilisent des masques SVG ;
-  les anciens liens avec image utilisent la même ressource locale.
+- Icônes Lucide dans la navigation et sur les commandes reconnues du cœur et des applications
+  (recherche, notifications, réglages, menus, téléchargement et autres actions courantes).
+  Les applications et commandes non reconnues, les miniatures et les avatars utilisent leurs
+  icônes natives. Le thème ne modifie pas les fichiers des applications.
 
 Le thème adapte l’interface existante. Il ne déplace pas les applications dans une
 nouvelle barre latérale comme dans la maquette et ne remplace pas les données réelles.

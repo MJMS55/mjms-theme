@@ -29,6 +29,7 @@ final class ThemeListener implements IEventListener {
         }
         if ($this->config->getAppValue(Application::APP_ID, 'modern_icons', 'yes') === 'yes') {
             Util::addStyle(Application::APP_ID, 'icons');
+            Util::addStyle(Application::APP_ID, 'command-icons');
         }
         $this->loaded = true;
     }

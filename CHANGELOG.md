@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 — 2026-11-18
+
+- Étend les icônes Lucide aux commandes communes de Nextcloud, dont la recherche, les notifications, les menus et le téléchargement de fichiers.
+- Respecte les icônes natives des commandes non reconnues et le mode de couleurs forcées pour les nouvelles commandes.
+
 ## 0.1.2 — 2026-11-18
 
 - Icônes Lucide à traits fins pour 15 applications courantes dans la navigation et le lanceur.

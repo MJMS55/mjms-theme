@@ -1,0 +1,157 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later
+ * Lucide mappings for named Nextcloud icons. Keep native glyphs in forced colors.
+ * Select the icon wrapper only, so labels, badges, loading states and clicks stay native.
+ */
+@media (forced-colors: none) {
+    body#body-user :is(.material-design-icon.magnify-icon, .unified-search-input__resting > span.material-design-icon) {
+        --mjms-command-icon: url('../img/icons/search.svg');
+    }
+
+    body#body-user :is(.material-design-icon.bell-icon, .material-design-icon.bell-outline-icon) {
+        --mjms-command-icon: url('../img/icons/bell.svg');
+    }
+
+    body#body-user :is(.material-design-icon.bell-off-icon, .material-design-icon.bell-off-outline-icon) {
+        --mjms-command-icon: url('../img/icons/bell-off.svg');
+    }
+
+    body#body-user :is(.material-design-icon.account-multiple-outline-icon) {
+        --mjms-command-icon: url('../img/icons/users-round.svg');
+    }
+
+    body#body-user :is(.material-design-icon.dots-grid-icon) {
+        --mjms-command-icon: url('../img/icons/grid-3x3.svg');
+    }
+
+    body#body-user :is(.material-design-icon.filter-variant-icon) {
+        --mjms-command-icon: url('../img/icons/sliders-horizontal.svg');
+    }
+
+    body#body-user :is(.material-design-icon.close-icon) {
+        --mjms-command-icon: url('../img/icons/x.svg');
+    }
+
+    body#body-user :is(.material-design-icon.download-icon, .material-design-icon.download-outline-icon, [data-cy-files-list-row-action="download"] .files-list__row-action-icon) {
+        --mjms-command-icon: url('../img/icons/download.svg');
+    }
+
+    body#body-user :is(.material-design-icon.pencil-icon, .material-design-icon.pencil-outline-icon) {
+        --mjms-command-icon: url('../img/icons/pencil.svg');
+    }
+
+    body#body-user :is(.material-design-icon.folder-move-outline-icon) {
+        --mjms-command-icon: url('../img/icons/folder-input.svg');
+    }
+
+    body#body-user :is(.material-design-icon.trash-can-outline-icon) {
+        --mjms-command-icon: url('../img/icons/trash-2.svg');
+    }
+
+    body#body-user :is(.material-design-icon.arrow-left-icon) {
+        --mjms-command-icon: url('../img/icons/arrow-left.svg');
+    }
+
+    body#body-user :is(.material-design-icon.cog-icon, .material-design-icon.cog-outline-icon) {
+        --mjms-command-icon: url('../img/icons/settings.svg');
+    }
+
+    body#body-user :is(.material-design-icon.link-variant-icon) {
+        --mjms-command-icon: url('../img/icons/link.svg');
+    }
+
+    body#body-user :is(.material-design-icon.open-in-new-icon) {
+        --mjms-command-icon: url('../img/icons/external-link.svg');
+    }
+
+    body#body-user :is(.material-design-icon.content-copy-icon) {
+        --mjms-command-icon: url('../img/icons/copy.svg');
+    }
+
+    body#body-user :is(.material-design-icon.plus-icon) {
+        --mjms-command-icon: url('../img/icons/plus.svg');
+    }
+
+    body#body-user :is(.material-design-icon.dots-horizontal-icon) {
+        --mjms-command-icon: url('../img/icons/ellipsis.svg');
+    }
+
+    body#body-user :is(.material-design-icon.dots-vertical-icon) {
+        --mjms-command-icon: url('../img/icons/ellipsis-vertical.svg');
+    }
+
+    body#body-user :is(.material-design-icon.format-list-bulleted-square-icon) {
+        --mjms-command-icon: url('../img/icons/list.svg');
+    }
+
+    body#body-user :is(.material-design-icon.view-grid-outline-icon) {
+        --mjms-command-icon: url('../img/icons/layout-grid.svg');
+    }
+
+    body#body-user :is(.material-design-icon.chevron-down-icon) {
+        --mjms-command-icon: url('../img/icons/chevron-down.svg');
+    }
+
+    body#body-user :is(.material-design-icon.chevron-right-icon) {
+        --mjms-command-icon: url('../img/icons/chevron-right.svg');
+    }
+
+    body#body-user :is(.material-design-icon.arrow-up-icon) {
+        --mjms-command-icon: url('../img/icons/arrow-up.svg');
+    }
+
+    body#body-user :is(.material-design-icon.arrow-down-icon) {
+        --mjms-command-icon: url('../img/icons/arrow-down.svg');
+    }
+
+    body#body-user :is(.material-design-icon.reload-icon) {
+        --mjms-command-icon: url('../img/icons/refresh-cw.svg');
+    }
+
+    body#body-user :is(.material-design-icon.logout-icon) {
+        --mjms-command-icon: url('../img/icons/log-out.svg');
+    }
+
+    body#body-user :is(
+        .material-design-icon.magnify-icon,
+        .material-design-icon.bell-icon,
+        .material-design-icon.bell-outline-icon,
+        .material-design-icon.bell-off-icon,
+        .material-design-icon.bell-off-outline-icon,
+        .material-design-icon.account-multiple-outline-icon,
+        .material-design-icon.dots-grid-icon,
+        .material-design-icon.filter-variant-icon,
+        .material-design-icon.close-icon,
+        .material-design-icon.download-icon,
+        .material-design-icon.download-outline-icon,
+        .material-design-icon.pencil-icon,
+        .material-design-icon.pencil-outline-icon,
+        .material-design-icon.folder-move-outline-icon,
+        .material-design-icon.trash-can-outline-icon,
+        .material-design-icon.arrow-left-icon,
+        .material-design-icon.cog-icon,
+        .material-design-icon.cog-outline-icon,
+        .material-design-icon.link-variant-icon,
+        .material-design-icon.open-in-new-icon,
+        .material-design-icon.content-copy-icon,
+        .material-design-icon.plus-icon,
+        .material-design-icon.dots-horizontal-icon,
+        .material-design-icon.dots-vertical-icon,
+        .material-design-icon.format-list-bulleted-square-icon,
+        .material-design-icon.view-grid-outline-icon,
+        .material-design-icon.chevron-down-icon,
+        .material-design-icon.chevron-right-icon,
+        .material-design-icon.arrow-up-icon,
+        .material-design-icon.arrow-down-icon,
+        .material-design-icon.reload-icon,
+        .material-design-icon.logout-icon,
+        .unified-search-input__resting > span.material-design-icon,
+        [data-cy-files-list-row-action="download"] .files-list__row-action-icon
+    ):has(> svg):not(svg) {
+        background-color: currentColor;
+        mask: var(--mjms-command-icon) center / contain no-repeat;
+
+        & > svg {
+            visibility: hidden;
+        }
+    }
+}

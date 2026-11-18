@@ -71,14 +71,14 @@ namespace {
     $listener->handle(new BeforeTemplateRenderedEvent(false));
     check(Util::$styles === [], 'Unrelated and anonymous requests load no theme');
     $listener->handle(new BeforeTemplateRenderedEvent(true));
-    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact'], ['mjms_theme', 'icons']], 'Authenticated requests load palette, compact rules and icons');
+    check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact'], ['mjms_theme', 'icons'], ['mjms_theme', 'command-icons']], 'Authenticated requests load both icon stylesheets');
     $listener->handle(new BeforeTemplateRenderedEvent(true));
-    check(count(Util::$styles) === 3, 'Repeated rendering does not duplicate assets');
+    check(count(Util::$styles) === 4, 'Repeated rendering does not duplicate assets');
 
     foreach (['no', 'unexpected'] as $value) {
         Util::$styles = [];
         (new ThemeListener(config($value)))->handle(new BeforeTemplateRenderedEvent(true));
-        check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'icons']], "Compact disabled for value: $value");
+        check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'icons'], ['mjms_theme', 'command-icons']], "Compact disabled for value: $value");
     }
 
     $root = dirname(__DIR__);
@@ -88,13 +88,13 @@ namespace {
     Util::$styles = [];
     (new ThemeListener(config('yes', 'no')))->handle(new BeforeTemplateRenderedEvent(true));
     check(Util::$styles === [['mjms_theme', 'institutional'], ['mjms_theme', 'compact']], 'Native icon option omits replacement stylesheet');
-    foreach (['institutional', 'compact', 'icons'] as $asset) {
+    foreach (['institutional', 'compact', 'icons', 'command-icons'] as $asset) {
         check(is_file($root . '/css/' . $asset . '.css'), "Stylesheet exists: $asset");
     }
-    $css = file_get_contents($root . '/css/icons.css');
+    $css = file_get_contents($root . '/css/icons.css') . file_get_contents($root . '/css/command-icons.css');
     preg_match_all("~url\\('\\.\\./(img/icons/[^']+)'\\)~", $css, $matches);
     $assets = array_unique($matches[1]);
-    check(count($assets) === 15, 'All 15 icon mappings have bundled assets');
+    check(count($assets) > 15, 'Application and command icon mappings have bundled assets');
     foreach ($assets as $path) {
         $svg = simplexml_load_file($root . '/' . $path);
         check($svg !== false && (string)$svg['viewBox'] === '0 0 24 24', 'Valid SVG: ' . basename($path));
